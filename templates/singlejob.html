@@ -1,0 +1,129 @@
+<html>
+<head>
+<title></title>
+        <meta name="description" content="American Asphalt Board App">
+        <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/media/css/aa.css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum scale=1.0;">
+
+</head>
+<body>
+<div class="row">
+ <div id="pageContainer">
+
+{% if user.is_authenticated %}
+         <div class="row">
+
+        <div class=" col-md-12  toppad" >
+
+
+          <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading">
+              <h3 class="panel-title"><center>Job #{{ job }}</center></h3>
+            </div>
+            <div class="panel-body tweettext">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center">  </div>
+
+                
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information tweettext">
+                    <tbody>
+                        <tr>
+                        <img src="/media/images/AAlogo.png" class="img-responsive" width="300" height="35"/>
+                        
+                      </tr>
+                      <tr>
+                        <td>NAME:</td>
+                        <td><b>{{ job.job_name}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>ADDRESS:</td>
+                        <td><b>{{ job.map_address }}</b></td>
+                      </tr>
+                         <tr>
+                         <td>LEVEL:</td>
+                        <td><b>{{ job.get_level_display }}</b></td>
+                      </tr>    
+                             <tr>
+                        <td>Phone #:</td>
+                        <td><b>{{ job.contact_phone }}</b></td>
+                      </tr>
+                        <tr>
+                        <td>INFO:</td>
+                        <td><b>{{ job.job_desc }}</b></td>
+                      </tr>
+
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+                </div>
+              </div>
+
+
+         <div class="panel-footer tweettext" style="background-color: rgba(0, 0, 0, 0.5)" >
+                
+        <center><b>SAFETY VESTS PUTOS!!!</b></center>
+
+  </div>
+ </div>
+</div>
+
+                        <div class="col-md-12 map"  style="background-color: rgba(0, 0, 0, 0.9)" >
+                         {%  load easy_maps_tags %}
+                        <!-- Default map with 150x500 dimensions -->
+                         {%  easy_map job.map_address 315 150 10%}
+                </div>
+
+
+
+
+
+
+
+        {% for job in jobs %}
+
+         <div class="row">
+
+        <div class="col-md-12 toppad" >
+
+
+          <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading tweettext">
+              {{ job }} from {{ jobs }}
+            </div>
+
+               <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="left"><a href="/waxs/{{ wax.slug }}/"> <img alt="User Pic" src="{{ wax.wax_pic.url }}" width="75" height="75" class="img-circle"></a><a href="/waxs/{{ wax.slug }}/">
+                        <button type="button" class="btn btn-success btn-cons">{{ wax }} &nbsp ${{ wax.pricepergram }}/gr</button></a> </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+           </div>
+</div>
+
+ {% endfor %}
+
+
+
+
+
+        <div id="user_rating"></div>
+        <div id="nav_bottom">
+ <center><p><a href="/jobs/"><button type="button" class="btn btn-primary"> JOBS </button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="/profile/"><button type="button" class="btn btn-primary"> PROFILE </button></a></p></center>
+        </div>
+        </div>
+{% else %}
+<img src="/static/images/ahahah.gif" width='320px' >
+<center><h3><p>Please <a href="/login/">Login</a> to view this page</p></h3></center>
+{% endif %}

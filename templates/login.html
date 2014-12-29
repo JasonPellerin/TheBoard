@@ -1,0 +1,35 @@
+<html>
+<head>
+<title></title>
+        <meta name="description" content="American Asphalt Board App">
+        <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/media/css/aa.css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum scale=1.0;">
+
+</head>
+<body>
+<div class="row tweettext">
+ <div id="pageContainer" style="background: url(/media/images/IMG_0783.JPG) repeat-y scroll center top #656565;">
+    <br /><br />
+    <p><img src="/media/images/AAlogo.png" width="300" height="50" /></p>
+<center>
+<h1>Login to The Board</h1>
+<form action="" method="post" style="color: #fad201;">
+{% csrf_token %}
+{% if form.errors %}<p>Please correct the following fields:</p>{% endif %}
+<div class="register_div">
+        {% if form.username.errors %}<p class="error">{{ form.username.errors }}</p>{% endif %}
+        <p><label for="username"{% if form.username.errors %} class="error"{% endif %}>Username:</label></p>
+        <p>{{ form.username }}</p>
+</div>
+<div class="register_div">
+        {% if form.password.errors %}<p class="error">{{ form.password.errors }}</p>{% endif %}
+        <p><label for="password"{% if form.password.errors %} class="error"{% endif %}>Password:</label></p>
+        <p>{{ form.password }}</p>
+</div>
+<p><input type="submit" alt="register" /></p>
+</form>
+
+</center>
+</div>
+ </div>

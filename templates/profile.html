@@ -1,0 +1,87 @@
+
+<html>
+<head>
+<title></title>
+        <meta name="description" content="American Asphalt Board App">
+        <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/media/css/aa.css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum scale=1.0;">
+
+</head>
+<body>
+<div class="row">
+ <div id="pageContainer">
+        <div id="profile">
+      <div class="row">
+        <div class="col-md-12 toppad" >
+          <div class="panel panel-info"  style="background-color: rgba(0, 0, 0, 0.9)">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ crew }}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center" ><img src="/media/{{ user.profile.crew_pic }}" class="img-responsive img-circle" /></div>
+
+             
+                <div class=" col-md-9 col-lg-9">
+                  <table class="table table-user-information tweettext">
+                    <tbody>
+                      <tr>
+                        <td>CREWMAN:</td>
+                        <td>{{ user.profile.first_name }} {{ user.profile.last_name }} </td>
+                      </tr>
+                      <tr>
+                        <td>DEPT:</td>
+                        <td>{{ user.profile.department }}</td>
+                      </tr>
+                      <tr>
+                        <td>SUPER:</td>
+                        <td>{{ user.profile.superint }}</td>
+                      </tr>
+                      <tr>
+                        <td>FOREMAN:</td>
+                        <td>{{ user.profile.foreman }}</td>
+                      </tr>
+                      <tr>
+                        <td>PHONE #:</td>
+                        <td>{{ user.profile.phone }}</td>
+                      </tr>
+                       
+                      <tr>
+                        <td>LANGUAGE:</td>
+                        <td>{{ user.profile.get_lang_display }}</td>
+                      </tr>  
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                  
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer" style="background-color: rgba(0, 0, 0, 0.5)"  >
+
+
+                    </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+        <div id="nav_bottom">
+                <center><p><a href="/jobs/"><button type="button" class="btn btn-primary"> JOBS </button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+                <a href="/jobs/"><button type="button" class="btn btn-primary">TODAY</button></a></p></center>
+        </div>
+</div>

@@ -1,0 +1,61 @@
+
+<html>
+<head>
+<title></title>
+        <meta name="description" content="American Asphalt Board App">
+        <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/media/css/aa.css">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum scale=1.0;">
+
+</head>
+<body>
+<div class="row">
+ <div id="pageContainer">
+
+
+{% if user.is_authenticated %}
+
+
+
+
+
+                         <div class="row">
+
+        <div class="col-md-12 toppad" >
+        <div class="panel panel-info" style="background-color: rgba(0, 0, 0, 0.9)" >
+            <div class="panel-heading tweettext">
+                        <center><b>Job Board</b></center>
+            </div>
+
+               <div class="panel-body tweettext">
+                        <p><img src="/media/images/AAlogo.png" width="300" height="50" /></p>
+                        <b><p><center>All Jobs:</center></p></b>
+                {% for job in jobs %}
+                <div class="row">
+                <div class="col-md-12" align="center">
+                    <a href="/jobs/"><a href="/jobs/{{ job.slug }}/">
+                         <button type="button" class="btn btn-success btn-cons"><b>{{ job }} {{ job.job_date }} {{ job.department }} </b></button></a></b>
+
+                {% endfor %}
+            </div>
+           </div>
+         </div>
+        </div>
+
+
+
+
+        <div id="nav_bottom" class-"toppad">
+                
+                <p>
+                <a href="/jobs/">
+                    <button type="button" class="btn btn-primary"> JOBS </button></a>
+                </p>
+        </div>
+
+
+
+{% else %}
+<img src="/static/images/ahahah.gif" width='490px'>
+<center><h3><p>Please <a href="/login/">Login</a> to view this page</p></h3></center>
+{% endif %}
